@@ -1,0 +1,775 @@
+@font-face {
+    font-family: "Geometos";
+    src: url('Geometos.ttf') format('truetype');
+  }
+
+body {
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(
+      270deg,
+      #aaff47,
+      #f6dab5
+    ); /* Gradient background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    position: relative;
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 2px, /* thicker lines - change the value here */
+        transparent 2px /* thicker lines - change the value here */
+      ),
+      linear-gradient(rgba(255, 255, 255, 0.1) 3px, transparent 2px); /* thicker lines - change the value here */
+    background-size: 30px 30px; /* adjust the size of the pattern */
+  }
+  
+  
+  .header-1 {
+    position: relative;
+    padding: 15px;
+    color: white;
+    margin-bottom: -50px;
+  }
+  
+  .headerlogo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px; /* Adjust right positioning as needed */
+  }
+  
+  .logo {
+  height: 20px; /* Adjust logo height as needed */
+  margin-left: 20px;
+  }
+  
+  
+  .navbar {
+  font-family: Geometos;
+  display: flex;
+  justify-content: center;
+  padding: 10px; /* Add padding to space out the navbar links */
+  }
+  
+  .navbar button {
+    color: #0b6228;
+    font-weight: bold;
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-right: 10px; /* Add margin-right to create space between buttons */
+  }
+  
+  .navbar button:last-child {
+  margin-right: 0; /* Remove margin-right for the last button to avoid extra space */
+  }
+  
+  
+  .loading-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Set background color to white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's above everything else */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none; /* Hide the loading screen from interactions */
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.2s ease;
+  }
+  
+  
+  .loader {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    animation: loading-rotate 2s linear infinite;
+  }
+  
+  .item {
+    width: 40px;
+    height: 40px;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .item:nth-of-type(1) {
+    background-color: #50DE68;
+    border-radius: 20px 20px 0 20px;
+    border-left: #ffffff 4px solid;
+    border-top: #f7f7f7 4px solid;
+  }
+  
+  .item:nth-of-type(2) {
+    background-color: rgb(32, 80, 46);
+    border-radius: 20px 20px 20px 0;
+    border-right: #ffffff 4px solid;
+    border-top: #f7f7f7 4px solid;
+  }
+  
+  .item:nth-of-type(3) {
+    background-color: rgb(0, 255, 55);
+    border-radius: 20px 0 20px 20px;
+    border-left: #ffffff 4px solid;
+    border-bottom: #f7f7f7 4px solid;
+  }
+  
+  .item:nth-of-type(4) {
+    background-color: rgb(32, 182, 32);
+    border-radius: 0 20px 20px 20px;
+    border-right: #ffffff 4px solid;
+    border-bottom: #f7f7f7 4px solid;
+  }
+  
+  @keyframes loading-rotate {
+    0% {
+      transform: scale(1) rotate(0);
+    }
+  
+    20% {
+      transform: scale(1) rotate(72deg);
+    }
+  
+    40% {
+      transform: scale(0.5) rotate(144deg);
+    }
+  
+    60% {
+      transform: scale(0.5) rotate(216deg);
+    }
+  
+    80% {
+      transform: scale(1) rotate(288deg);
+    }
+  
+    100% {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+  
+  .password-input {
+    position: relative;
+}
+
+.password-input input[type="password"] {
+    padding-right: 30px; /* Add padding for eye icon */
+}
+
+.password-input .fa-eye {
+    position: absolute;
+    right: 20px; /* Adjust right positioning */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    cursor: pointer;
+    color: #ccc; /* Set default color */
+}
+
+.password-input .fa-eye:hover {
+    color: #333; /* Change color on hover */
+}
+
+  
+  .container {
+    /* other styles */
+    position: relative;
+    display: flex;
+    justify-content: flex-end; /* Align the form to the right */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set the height to full viewport height */
+    padding-right: 20px; /* Add some padding to the right */
+    transition: transform 0.3s ease;
+  }
+  
+  .container.pushed-down {
+    transform: translateY(200px); /* Adjust the amount you want to push down */
+  }
+  
+  .intro-text {
+    font-family: Geometos;
+    width: 100%;
+    max-width: 500px; /* Adjust max-width as per your design */
+    padding: 0px;
+    margin-right: 150px;
+  }
+  
+  .intro-text h2 {
+  font-weight: bold;
+    color: #57c164; /* Adjust color as per your design */
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+  
+  .intro-text p {
+    color: #666; /* Adjust color as per your design */
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  
+  .form {
+  margin-top: 110px;
+    font-family: Google Sans, 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 950px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.45);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255,255,255,0.225);
+  }
+  
+  .title {
+    font-size: 28px;
+    color: #76c476;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+  
+  .title::before,.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: #76c476;
+  }
+  
+  .title::before {
+    width: 18px;
+    height: 18px;
+    background-color: #76c476;
+  }
+  
+  .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+  
+  .message, .signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+  }
+  
+  .signin {
+    text-align: center;
+  }
+  
+  .signin a {
+    color: royalblue;
+  }
+  
+  .signin a:hover {
+    text-decoration: underline royalblue;
+  }
+  
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+  }
+  
+  .form label {
+    position: relative;
+  }
+  
+  .form label .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+  }
+  
+  .form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+  
+  .form label .input:placeholder-shown + span {
+    top: 15px;
+    font-size: 0.9em;
+  }
+  
+  .form label .input:focus + span,.form label .input:valid + span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  
+  .form label .input:valid + span {
+    color: green;
+  }
+  
+  .submit {
+    border: none;
+    outline: none;
+    background-color: #76c476;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+  }
+  
+  .submit:hover {
+    background-color: #3bca3b;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+  
+  /* Add styles for burger menu icon */
+  .burger-menu {
+    display: none; /* Initially hide the burger menu icon */
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .bar {
+    display: none; /* Initially hide the burger menu icon */
+    width: 25px;
+    height: 3px;
+    background-color: #0b6228;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  
+  /* Adjust visibility of burger menu icon based on screen size */
+    @media (max-width: 811px) {
+      .navbar-buttons {
+        display: flex; /* Initially hide navbar buttons */
+        flex-direction: column; /* Arrange buttons in a column */
+        z-index: 999; /* Ensure it's above everything else */
+        position: absolute; /* Position it absolutely */
+        top: 250%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center the container */
+        padding: 10px; /* Add some padding */
+        opacity: 0; /* Initially hide with opacity */
+        transition: opacity 0.3s ease; /* Add transition for opacity */
+      }
+  
+      .navbar button {
+        width: 47em; /* Adjusted width for longer buttons */
+        height: 3em;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+    
+    .navbar button:hover::before {
+      width: 12em;
+      border-radius: 10px;
+  
+      }
+  
+      .burger-menu{
+        margin-left: auto; /* Position at the right of the header */
+      }
+  
+      .bar{
+        display: block;
+      }
+    
+      .navbar-buttons.active {
+        display: flex; /* Show navbar buttons when active class is applied */
+        opacity: 1; /* Fade in with opacity */
+      }
+    
+      /* Add some spacing between buttons */
+      .navbar-buttons button {
+        margin-bottom: 5px;
+      }
+    }
+    
+  
+  .burger-menu {
+      display: block; /* Display burger menu icon when reaching max-width */
+  }
+  
+  .burger-menu.active .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .burger-menu.active .bar:nth-child(2) {
+      opacity: 0;
+  }
+  
+  .burger-menu.active .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
+  
+  
+  @media (max-width: 960px){
+  .navbar-buttons{
+    margin-right: -180px;
+  }
+  }
+  
+  @media (max-width: 1200px){
+    .intro-text{ 
+        max-width: 300px;  
+  }
+  }
+  
+  @media (max-width: 992px){
+    .intro-text{ 
+        max-width: 150px;  
+    }
+  }
+  
+  
+  @media (max-width: 768px){
+    .container {
+      bottom: -30px;
+        /* other styles */
+        position: relative;
+        display: flex;
+        flex-direction: column; /* Change to column layout */
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        height: 100vh; /* Set the height to full viewport height */
+        padding-right: 20px; /* Add some padding to the right */
+    }
+    
+    .intro-text {
+        text-align: center; /* Center text */
+        max-width: 500px;
+        margin-right: -5px;
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 400px; /* Adjust max-width as per your design */
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.45);
+        -webkit-backdrop-filter: blur(25px);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.225);
+    }
+    
+  }
+  
+  @media (max-width: 746px){
+    .navbar button {
+      width: 40em; /* Adjusted width for longer buttons */
+  }
+  }
+  
+  @media (max-width: 652px){
+    .navbar button {
+      width: 30em; /* Adjusted width for longer buttons */
+  }
+  }
+  
+  @media (max-width: 488px){
+    .navbar button {
+      width: 20em; /* Adjusted width for longer buttons */
+  }
+  }
+  
+  @media (max-width: 335px){
+    .navbar button {
+      width: 15em; /* Adjusted width for longer buttons */
+  }
+  }
+  
+  @media (max-height: 897px) and (max-width: 415px){
+    .container{
+      top: 35px;
+    }
+    }
+  
+    @media (max-height: 915px) and (max-width: 413px){
+      .container{
+        top: 25px;
+      }
+      }
+    
+  
+    
+  @media (max-height: 845px) and (max-width: 391px){
+    .container{
+      top: 50px;
+    }
+    }
+  
+    @media (max-height: 933px) and (max-width: 431px){
+      .intro-text{
+        margin-top: -240px;
+      }
+      }
+  
+      @media (max-height: 654px) and (max-width: 281px){
+        .intro-text{
+          margin-top: -250px;
+        }
+      }
+  
+  
+  @media (max-width: 431px){
+    html, body {
+        height: 120%;
+    }
+  
+    .intro-text h2{
+        font-size: 17px;
+  }
+  
+    .intro-text p{
+        font-size: 10px;
+    }
+  
+    .container{ 
+        margin-top: 50px;
+    }
+  
+  }
+  
+  @media (max-height: 674px){
+    .container{ 
+        margin-top: 40px;
+    }
+  
+    html, body {
+        height: 110%;
+    }
+  
+  }
+  
+  
+  @media (max-height: 932px){
+    .container{ 
+        margin-top: -150px;
+    }
+  
+    .form{
+      margin-top: 0px;
+    }
+  
+    html, body {
+        height: 60%;
+    }
+  
+  }
+  
+  @media (max-height: 750px){
+  .container{ 
+      margin-top: -10px;
+  }
+  
+  html, body {
+      height: 60%;
+  }
+  
+  }
+  
+  @media (max-height: 1000px){
+  .container{ 
+      margin-top: -10px;
+  }
+  
+  html, body {
+      height: 60%;
+  }
+  
+  }
+  
+  @media (max-height: 801px){
+  .container{ 
+      margin-top: 80px;
+  }
+  
+  html, body {
+      height: 120%;
+  }
+  }
+  
+  @media (max-height: 530px) and (max-width: 768px){
+    .container{ 
+        margin-top: 140px;
+    }
+  }
+  
+  @media (max-height: 480px) and (max-width: 814px){
+    .container{ 
+        margin-top: 140px;
+    }
+  }
+  
+  @media (max-height: 251px) and (max-width: 814px){
+    .form{ 
+        margin-top: 100px;
+    }
+  }
+  
+  @media (max-height: 371px) and (max-width: 814px){
+    .container{ 
+        margin-top: 190px;
+    }
+  }
+  
+  @media (max-height: 541px) and (max-width: 769px){
+    .container{ 
+        margin-top: 140px;
+    }
+  }
+  
+  @media (max-height: 428px) and (max-width: 769px){
+    .container{ 
+        margin-top: 190px;
+    }
+  }
+  
+  @media (max-height: 331px) and (max-width: 769px){
+    .container{ 
+        margin-top: 240px;
+    }
+  }
+  
+  @media (max-height: 251px) and (max-width: 769px){
+    .container{ 
+        margin-top: 310px;
+    }
+  }
+  
+  @media (max-height: 762px) and (max-width: 431px){
+    .container{ 
+        margin-top: 100px;
+    }
+  }
+  
+  @media (max-height: 687px) and (max-width: 431px){
+    .container{ 
+        margin-top: 130px;
+    }
+  }
+  
+  @media (max-height: 638px) and (max-width: 431px){
+    .container{ 
+        margin-top: 190px;
+    }
+  }
+  
+  @media (max-height: 452px) and (min-width: 814px){
+    .container{ 
+        margin-top: 190px;
+    }
+  }
+  
+  @media (max-height: 541px){
+    html, body {
+      height: 130%; /* Set the height to 100% of the viewport height */
+  }
+  }
+  
+  @media (max-height: 481px){
+    html, body {
+      height: 140%; /* Set the height to 100% of the viewport height */
+      margin: 0; /* Remove any default margin */
+      padding: 0; /* Remove any default padding */
+  }
+  }
+  
+  @media (max-height: 371px){
+    html, body {
+      height: 150%; /* Set the height to 100% of the viewport height */
+  }
+  }
+  
+  @media (max-height: 335px){
+    html, body {
+      height: 160%; /* Set the height to 100% of the viewport height */
+  }
+  }
+  
+  @media (max-height: 286px){
+    html, body {
+      height: 170%; /* Set the height to 100% of the viewport height */
+  }
+  }
+  
+  @media (max-height: 251px){
+    html, body {
+      height: 185%; /* Set the height to 100% of the viewport height */
+  }
+  }
+  
+  @media (max-height: 221px){
+    html, body {
+      height: 195%; /* Set the height to 100% of the viewport height */
+  }
+  }
+  
+  @media (max-height: 288px){
+    html, body {
+      height: 205%; /* Set the height to 100% of the viewport height */
+  }
+  }

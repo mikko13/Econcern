@@ -1,0 +1,168 @@
+@font-face {
+    font-family: "Geometos";
+    src: url('Geometos.ttf') format('truetype');
+  }
+  
+  body {
+    background: linear-gradient(40deg, #f6dab5 0%, #aaff47 100%);
+    overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 2px, /* thicker lines - change the value here */
+      transparent 2px /* thicker lines - change the value here */
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.1) 3px, transparent 2px); /* thicker lines - change the value here */
+  background-size: 30px 30px; /* adjust the size of the pattern */
+}
+
+
+  .overlay {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+  .form {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.45);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.225);
+    width: 22em;
+    height: 14.5em;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .form p {
+    color: #57c164;
+  }
+  
+  .inp {
+    margin-left: auto;
+    margin-right: auto;
+    white-space: 4px;
+  }
+  
+  .input + .input {
+    margin-left: 0.5em
+  }
+  
+  .input {
+    color: #fff;
+    height: 2em;
+    width: 2em;
+    float: left;
+    text-align: center;
+    background: #00000000;
+    outline: none;
+    border: 1px #57c164 solid;
+    border-radius: 5px;
+    transition: all 0.6s ease;
+    font-size: larger;
+  }
+  
+  .input:not(:placeholder-shown) {
+    background-color: #57c164;
+    width: 1em;
+    height: 1em
+  }
+
+  .input:focus {
+    outline: none;
+    border: 1px #57c164 solid;
+  }
+  
+  .form button {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #00000000;
+    color: #57c164;
+    width: 8.5em;
+    height: 2.3em;
+    border: #57c164 0.1em solid;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+  }
+  
+  .form button:hover {
+    background-color: #57c164;
+    color: #fff;
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    10%, 90% { transform: translateX(-10px); }
+    20%, 80% { transform: translateX(10px); }
+    30%, 50%, 70% { transform: translateX(-10px); }
+    40%, 60% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake {
+    animation: shake 0.6s;
+  }
+
+  .bold-text{
+    font-weight: bold;
+    margin-bottom: -20px;
+    margin-top: 25px;
+  }
+
+.normal-text{
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+.verify-btn{
+    margin-top: 10px;
+}
+  
+
+  @media (max-width: 396px) {
+    .form{
+        width: 16em;
+        height: 15em;
+    }
+
+    .form p{
+      font-size: 15px;
+      margin-bottom: -10px;
+    }
+
+    .input{
+        height: 1.2em;
+        width: 1.2em;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .verify-btn{
+        margin-top: -10px;
+    }
+  }
+  
