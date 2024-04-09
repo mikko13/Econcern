@@ -19,10 +19,9 @@
 
 
     <div class="container">
-        <h1><img src="header-title.png" alt="logo-title"></h1>
-        <button id="myButton" class="btn-primary">Login</button>
-        <button id="myButton" class="btn-primary">Sign up</button>
-        <button id="myButton" class="btn-primary">About us</button>
+        <img class="logo" src="header-title.png" alt="logo-title" width="100%">
+        <button id="myButton" class="btn" width="50%">Login</button>
+        <button id="myButton" class="btn" width="50%">Sign up</button>
     </div>
 
 </body>

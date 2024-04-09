@@ -39,33 +39,104 @@ html, body {
 }
 
 .container {
-  margin-top: 250px; /* Adjust margin-top as needed */
+  margin-top: 9rem; /* Adjust margin-top as needed */
   text-align: center; /* Center align content */
+  padding: 5rem;
+  width: 200px;
+  height: 300px;
+  /*glass effect*/
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-.container h1 img {
-  width: 500px; /* Adjust the width as needed */
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  position: static;
+.logo {
+  width: 30rem;
+  display: block;
+  margin: 5px auto;
+  
 }
 
-.container .btn-primary {
-  font-size: 20px; /* Adjust the font size as needed */
+
+.container .btn {
+  font-size: 17px; /* Adjust the font size as needed */
   padding: 12px 24px; /* Adjust the padding as needed */
-  margin: 10px; /* Add margin between buttons */
+  margin: 15px; /* Add margin between buttons */
   border-radius: 8px; /* Add border radius for rounded corners */
-  background-color: #ffffff; /* Change background color */
-  color: #086c1f; /* Change text color */
-  border: none; /* Remove border */
+  background-color: #086c1f; /* Change background color */
+  color: white; /* Change text color */
+  border: none;
   transition: all 0.3s ease; /* Add transition effect */
 }
 
-.container .btn-primary:hover {
-  background-color: #086c1f; /* Change background color on hover */
+.container .btn:hover {
+  background-color: transparent; /* Change background color on hover  #086c1f */ 
+  color: #086c1f;
+  border: 2px solid #086c1f;
 }
 
-.container .btn-primary i {
+.container .btn i {
   margin-right: 5px; /* Add space between icon and text */
 }
+
+@media (max-width: 375px){
+
+  .logo{
+    width: 15rem;
+  }
+
+  .container {
+    margin-top: 7rem; /* Adjust margin-top as needed */
+    text-align: center; /* Center align content */
+    padding: 5rem;
+    width: 100px; /* Set width to 100% to occupy full width */
+    height: 400px; /* Set height as needed */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center align items horizontally */
+  }
+
+  .container .btn {
+    font-size: 15px; /* Adjust the font size as needed */
+    padding: 12px 24px; /* Adjust the padding as needed */
+    margin: 10px auto; /* Center align button horizontally */
+    border-radius: 8px; /* Add border radius for rounded corners */
+    background-color: #086c1f; /* Change background color */
+    color: white; /* Change text color */
+    border: none;
+    transition: all 0.3s ease; /* Add transition effect */
+  }
+}
+
+@media (max-width: 470px){
+
+  .logo{
+    width: 15rem;
+  }
+
+  .container {
+    margin-top: 7rem; /* Adjust margin-top as needed */
+    text-align: center; /* Center align content */
+    padding: 5rem;
+    width: 100%; /* Set width to 100% to occupy full width */
+    height: 400px; /* Set height as needed */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center align items horizontally */
+  }
+
+  .container .btn {
+    font-size: 15px; /* Adjust the font size as needed */
+    padding: 12px 24px; /* Adjust the padding as needed */
+    margin: 10px auto; /* Center align button horizontally */
+    border-radius: 8px; /* Add border radius for rounded corners */
+    background-color: #086c1f; /* Change background color */
+    color: white; /* Change text color */
+    border: none;
+    transition: all 0.3s ease; /* Add transition effect */
+  }
+}
+
