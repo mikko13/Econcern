@@ -1,0 +1,329 @@
+@font-face {
+    font-family: "Geometos";
+    src: url('Geometos.ttf') format('truetype');
+  }
+
+body {
+    background: #f6dab5;
+    background: -webkit-linear-gradient(80deg, #f6dab5 0%, #aaff47  100%);
+    background: linear-gradient(80deg, #f6dab5 0%, #aaff47  100%);
+  }
+  
+  
+  .header-1 {
+    position: relative;
+    padding: 15px;
+    color: white;
+    margin-bottom: -50px;
+  }
+  
+  .headerlogo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px; /* Adjust right positioning as needed */
+  }
+  
+  .logo {
+  height: 20px; /* Adjust logo height as needed */
+  margin-left: 20px;
+  }
+  
+  
+  .navbar {
+  font-family: Geometos;
+  display: flex;
+  justify-content:right;
+  padding: 10px; /* Add padding to space out the navbar links */
+  }
+  
+  .navbar button {
+    color: #0b6228;
+    font-weight: bold;
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-right: 0px; /* Add margin-right to create space between buttons */
+  }
+  
+  .navbar button:last-child {
+  margin-right: 0; /* Remove margin-right for the last button to avoid extra space */
+  }
+  
+  
+  .loading-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Set background color to white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's above everything else */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none; /* Hide the loading screen from interactions */
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.2s ease;
+  }
+  
+  
+  .loader {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    animation: loading-rotate 2s linear infinite;
+  }
+  
+  .item {
+    width: 40px;
+    height: 40px;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .item:nth-of-type(1) {
+    background-color: #50DE68;
+    border-radius: 20px 20px 0 20px;
+    border-left: #ffffff 4px solid;
+    border-top: #f7f7f7 4px solid;
+  }
+  
+  .item:nth-of-type(2) {
+    background-color: rgb(32, 80, 46);
+    border-radius: 20px 20px 20px 0;
+    border-right: #ffffff 4px solid;
+    border-top: #f7f7f7 4px solid;
+  }
+  
+  .item:nth-of-type(3) {
+    background-color: rgb(0, 255, 55);
+    border-radius: 20px 0 20px 20px;
+    border-left: #ffffff 4px solid;
+    border-bottom: #f7f7f7 4px solid;
+  }
+  
+  .item:nth-of-type(4) {
+    background-color: rgb(32, 182, 32);
+    border-radius: 0 20px 20px 20px;
+    border-right: #ffffff 4px solid;
+    border-bottom: #f7f7f7 4px solid;
+  }
+  
+  @keyframes loading-rotate {
+    0% {
+      transform: scale(1) rotate(0);
+    }
+  
+    20% {
+      transform: scale(1) rotate(72deg);
+    }
+  
+    40% {
+      transform: scale(0.5) rotate(144deg);
+    }
+  
+    60% {
+      transform: scale(0.5) rotate(216deg);
+    }
+  
+    80% {
+      transform: scale(1) rotate(288deg);
+    }
+  
+    100% {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+  
+  /* Add styles for burger menu icon */
+  .burger-menu {
+    display: none; /* Initially hide the burger menu icon */
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .bar {
+    display: none; /* Initially hide the burger menu icon */
+    width: 25px;
+    height: 3px;
+    background-color: #0b6228;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Adjust visibility of burger menu icon based on screen size */
+    @media (max-width: 811px) {
+      .navbar-buttons {
+        display: flex; /* Initially hide navbar buttons */
+        flex-direction: column; /* Arrange buttons in a column */
+        z-index: 999; /* Ensure it's above everything else */
+        position: absolute; /* Position it absolutely */
+        top: 250%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center the container */
+        padding: 10px; /* Add some padding */
+        opacity: 0; /* Initially hide with opacity */
+        transition: opacity 0.3s ease; /* Add transition for opacity */
+      }
+  
+      .navbar button {
+        width: 47em; /* Adjusted width for longer buttons */
+        height: 3em;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+    
+    .navbar button:hover::before {
+      width: 12em;
+      border-radius: 10px;
+  
+      }
+  
+      .burger-menu{
+        margin-left: auto; /* Position at the right of the header */
+      }
+  
+      .bar{
+        display: block;
+      }
+    
+      .navbar-buttons.active {
+        display: flex; /* Show navbar buttons when active class is applied */
+        opacity: 1; /* Fade in with opacity */
+      }
+    
+      /* Add some spacing between buttons */
+      .navbar-buttons button {
+        margin-bottom: 5px;
+      }
+    }
+    
+  
+  .burger-menu {
+      display: block; /* Display burger menu icon when reaching max-width */
+  }
+  
+  .burger-menu.active .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .burger-menu.active .bar:nth-child(2) {
+      opacity: 0;
+  }
+  
+  .burger-menu.active .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
+  @media (max-width: 960px){
+  .navbar-buttons{
+    margin-right: 10px;
+  }
+  }
+
+  
+  @media (max-width: 746px){
+    .navbar button {
+      width: 40em; /* Adjusted width for longer buttons */
+  }
+  }
+  
+  @media (max-width: 652px){
+    .navbar button {
+      width: 30em; /* Adjusted width for longer buttons */
+  }
+  }
+  
+  @media (max-width: 488px){
+    .navbar button {
+      width: 20em; /* Adjusted width for longer buttons */
+  }
+  }
+  
+  @media (max-width: 335px){
+    .navbar button {
+      width: 15em; /* Adjusted width for longer buttons */
+  }
+  }
+
+  #report-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px; /* Adjust as needed */
+}
+
+#image-upload {
+    margin-bottom: 20px;
+}
+
+#report {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    resize: none;
+    overflow: hidden;
+}
+
+#company {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    background-color: #0b6228;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #084f22;
+}
+
+#image-preview-container {
+    display: none; /* Hide the image preview container initially */
+
+    margin-bottom: 30px;
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
