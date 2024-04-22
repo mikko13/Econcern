@@ -42,15 +42,16 @@
     <div class="container">
         <form id="report-form">
             <input type="file" accept="image/*" capture="camera" name="image" id="image-upload">
-            <input type="file" accept="image/*;capture=camera">
             <div id="image-preview-container">
         <img id="image-preview" src="#" alt="Image Preview">
     </div>
+                <div class ="input">
             <textarea name="report" id="report" rows="5" placeholder="Enter your detailed report"></textarea>
+                </div>
             <select name="company" id="company">
-                <option value="company1">Company 1</option>
-                <option value="company2">Company 2</option>
-                <option value="company3">Company 3</option>
+                <option value="company1">DENR</option>
+                <option value="company2">OWO</option>
+                <option value="company3">QWQ</option>
             </select>
             <button type="submit">Submit</button>
         </form>
